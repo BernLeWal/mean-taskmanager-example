@@ -1,0 +1,50 @@
+### Get all tasks
+#
+GET http://localhost:5200/tasks
+
+### Create a task
+#
+POST http://localhost:5200/tasks
+Content-Type: application/json
+
+{
+  "name": "Open Task 1",
+  "category": "home",
+  "state": "open"
+}
+
+# { "name": "Open Task 1", "category": "home", "state": "open" }
+
+### Get a task by id
+# Attention: Replace the id with the id of the task returned by the previous request
+#
+GET http://localhost:5200/tasks/6641daf9379ebdc12b46b79e
+
+
+### Create annother task
+#
+POST http://localhost:5200/tasks
+Content-Type: application/json
+
+{
+  "name": "Busy Task 2",
+  "category": "education",
+  "state": "busy"
+}
+
+
+### Update a task
+#
+PUT http://localhost:5200/tasks/6641daf9379ebdc12b46b79e
+Content-Type: application/json
+
+{
+  "name": "Open Task 1",
+  "category": "home",
+  "state": "done"
+}
+
+### Delete a task
+#
+DELETE http://localhost:5200/tasks/6641daf9379ebdc12b46b79e
+

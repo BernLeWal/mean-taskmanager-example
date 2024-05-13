@@ -9,11 +9,11 @@ export async function connectToDatabase(uri: string) {
     const client = new mongodb.MongoClient(uri);
     await client.connect();
 
-    const db = client.db("meanStackExample");
+    const db = client.db("TaskManagerExample");
     await applySchemaValidation(db);
 
-    const employeesCollection = db.collection<Task>("tasks");
-    collections.tasks = employeesCollection;
+    const tasksCollection = db.collection<Task>("tasks");
+    collections.tasks = tasksCollection;
 }
 
 // Update our existing collection with JSON schema validation so we know our documents will always match the shape of our Task model, even if added elsewhere.
@@ -33,7 +33,7 @@ async function applySchemaValidation(db: mongodb.Db) {
                 category: {
                     bsonType: "string",
                     description: "'category' is required and is a string",
-                    minLength: 5
+                    minLength: 3
                 },
                 state: {
                     bsonType: "string",
