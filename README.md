@@ -25,6 +25,7 @@ To create the sample on your own.
 * Create the NodeJS server-side application in the sub-directory server/ using ```npm init -y```
 * Install NodeJS dependencies: ```npm install cors dotenv express mongodb```
 * Install TypeScript (for the server application): ```npm install --save-dev typescript @types/cors @types/express @types/node ts-node```
+* Create the TypeScript-Compiler configuration file [tsconfig.json](./server/tsconfig.json)
 
 ### Setup the containers
 
@@ -32,10 +33,15 @@ To create the sample on your own.
 * and configure the docker-compose.yml file (see https://geshan.com.np/blog/2023/03/mongodb-docker-compose/)
 
 ### Implement the source-files
-* Create the TypeScript-Compiler configuration file [tsconfig.json](./server/tsconfig.json)
 * Create an interface for the model [task.ts](./server/src/task.ts)
 * Create database-access implementation [database.ts](server/src/database.ts)
 * Create the server entry-point [server.ts](server/src/server.ts)
 * Set the configuration in the [.env](server/.env) file.
 * Verify that the NodeJS server works correctly using ```npx ts-node src/server.ts```. 
   It should print out ```Server running at http://localhost:5200...``` (Stop server by pressing Ctrl+C)
+
+### Implement the REST-Server
+* Create the REST-API endpoints and routes [task.routes.ts](server/src/task.routes.ts)
+* Use the routes in server, extend [server.ts](server/src/server.ts)
+* Test your RESTful Server using the HTTP-Requests in [rest-tests.http](server/rest-tests.http)
+
