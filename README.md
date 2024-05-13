@@ -46,7 +46,7 @@ To create the sample on your own.
 * Use the routes in server, extend [server.ts](server/src/server.ts)
 * Test your RESTful Server using the HTTP-Requests in [rest-tests.http](server/rest-tests.http)
 
-### Implement the client-side application with Angular
+### Implement the client-side application with Angular (preps)
 * IMPORTANT: During working with Angular CLI the server MUST be running! Use a separate terminal ans run ```npx ts-node src/server.ts```.
 * Create a new Angular application in the directory client/: 
   ```
@@ -55,11 +55,20 @@ To create the sample on your own.
   Keep all default settings.
 * Navigate to the new application (```cd client```) and run the application: ```ng serve -o```.  
   After the application is built, you should see a new tab in your browser window with the application running. It should say "Welcome to client!"
-
 * Install Angular Material: ```ng add @angular/material```
+
+### Implement the client-side application with Angular (first view)
 * Create an task interface on the client side ```ng generate interface task``` and add the implementation [task.ts](client/src/app/task.ts)
 * Create a service for handling all communication with the REST service ```ng generate service task``` and add the imlementation [task.service.ts](client/src/app/task.service.ts)
 * Create a tasks list component ```ng generate component tasks-list``` and add the implementation in [tasks-list.components.ts](client/src/app/tasks-list/tasks-list.component.ts)
 * Register the component as a route in [app.routes.ts](client/src/app/app.routes.ts)
 * Update [app.component.ts](client/src/app/app.component.ts) to use the implemented component.
 * Start angular ```ng serve -o``` and check your first component using the web-browser: http://localhost:4200/ . You should see a list of your tasks already.
+
+### Implement the client-side application with Angular (further views)
+* Generate a form for task creation using ```ng g c task-form``` and add the implementation [task-form.component.ts](client/src/app/task-form/task-form.component.ts).
+* Implement the add-task component using ```ng generate component add-task``` and update the sourcecode in [add-task.component.ts](client/src/app/add-task/add-task.component.ts).
+* Generate the edit-task component using ```ng generate component edit-task``` and add the implementation in [edit-task.component.ts](client/src/app/edit-task/edit-task.component.ts).
+* Add the navigation to the new pages in [app.routes.ts](client/src/app/app.routes.ts).
+* Start angular ```ng serve -o``` and check your first component using the web-browser: http://localhost:4200/ . You should see a list of your tasks already.
+
